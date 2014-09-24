@@ -1,10 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 import sys
 import codecs
 import urllib
 
 from docutils import nodes, writers
+
+if sys.version < '3':
+    text_type = unicode
+    binary_type = str
+else:
+    text_type = str
+    binary_type = bytes
 
 # sys.stdout = codecs.getwriter('shift_jis')(sys.stdout)
 
@@ -18,7 +26,7 @@ class Writer(writers.Writer):
         self.visitor.meta = {}
         self.document.walkabout(self.visitor)
         #Save some metadata as a comment, one per line.
-        self.output = unicode()
+        self.output = text_type()
         for key in self.visitor.meta.keys():
             self.output += "###. meta/%s:%s\n" % (key, self.visitor.meta[key])
 
