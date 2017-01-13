@@ -775,3 +775,4 @@ http://confluence.atlassian.com/display/DOC/Confluence+Notation+Guide+Overview
     # substitution definitions
     def visit_substitution_definition(self, node):
         raise nodes.SkipNode
+
