@@ -1,4 +1,4 @@
-docutils
-flake8
-urllib3
-six
+docutils>=0.22.3
+flake8>=7.3.0
+urllib3>=2.6.0
+six>=1.17.0
